@@ -5,6 +5,8 @@ This module contains helper functions that are used across different
 parts of the project.
 """
 
+import statistics
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -434,7 +436,13 @@ def generate_model_report(model, X_test: pd.DataFrame, y_test: pd.Series,
     report += "\n    ========================================"
     
     return report
-
+def calculate_statistics(data):
+    """Calculate basic statistics for dataset."""
+    return {
+'mean': data.mean(),
+'std': data.std(),
+'count': len(data)
+}
 
 # Example usage
 if __name__ == "__main__":
