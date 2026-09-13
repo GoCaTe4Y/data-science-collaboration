@@ -5,6 +5,8 @@ This module contains functions for training, evaluating, and saving
 machine learning models.
 """
 
+from xml.parsers.expat import model
+
 import pandas as pd
 import numpy as np
 import pickle
@@ -345,6 +347,12 @@ def main():
     except Exception as e:
         logger.error(f"Error in main execution: {str(e)}")
 
+from sklearn.ensemble import RandomForestClassifier
+def train_random_forest_model(X_train, y_train):
+    """Train a random forest model."""
+    model = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)
+    model.fit(X_train, y_train)
+    return model
 
 if __name__ == "__main__":
     main()
